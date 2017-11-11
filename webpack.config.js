@@ -8,13 +8,13 @@ module.exports = {
     },
     devSever: {
         port: 8080,
-        contentBase: './public',
+        contentBase: './public/'
     },
     module: {
         loaders: [{
             test: /.jsx?$/,
             loader: 'babel-loader',
-            exclude: 'babel-loader',
+            exclude: '/node_modules/',
             query: {
                 presets: ['es2015', 'react']
             }
