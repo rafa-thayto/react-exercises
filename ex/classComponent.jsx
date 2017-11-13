@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
 
-// Ou utilizar React.Component
 export default class ClassComponent extends Component {
-    // É obrigatório ter o método render
+    constructor(props) {
+        super(props);
+        this.state = { value: props.initialValue }
+    }
+        
+    sum(delta) {
+        this.setState({ value: this.state.value + delta })
+    }
+    
     render() {
         return (
-            <h1>{this.props.value}</h1>
+            <div>
+                <h1>{ this.props.label }</h1>
+                <h2>{ this.state.value }</h2>
+                <button onClick={() => this.sum(-1)}>Dec</button>
+                <button onClick={() => this.sum(+1)}>Sum</button>
+            </div>
         )
     }
 }
